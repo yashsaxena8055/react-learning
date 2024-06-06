@@ -10,16 +10,25 @@ export function InputBox({
     ...props
 
 }) {
- 
+   
+  const onchangeEvent = (event)=>{
+    props.handleInputText(event.currentTarget.innerText);
+   
+  }
+  
  
   return (
     <div 
     className={`editableDiv  ${className} `} 
     {...props} 
     label={label}
-    contentEditable="true" onChange={(event)=>(console.log(event.target.value))}>
+    suppressContentEditableWarning={true}
+    contentEditable="true" 
+    onInput={(e)=>onchangeEvent(e)}
+    >
+     
         Click here to edit this text.
     </div>
   )
-}onsole.log("+++++++="+ document.getElementsByClassName('editableDiv').innerText)
+}
 

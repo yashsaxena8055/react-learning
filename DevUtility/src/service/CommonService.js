@@ -1,29 +1,33 @@
+import { backendUtility } from "../../Backend";
 
 
 export function getDropDownMenu() {
-    let menu = [ 'Base64Encode','Base64Decode','JsonBeatuify'];
-    // calling business layer
-    return menu;
+    return backendUtility.getDropDownMenu();
 }
 
 export function generateUtility(type,input){
+    let output = "";
      switch(type){
-        case 'Base64Encode': Base64Encode(input);break;
-        case 'Base64Decode': Base64Decode(input);break;
+        case 'Base64Encode': output = backendUtility.Base64Encode(input);break;
+        case 'Base64Decode': output = backendUtility.Base64Decode(input);break;
+        case 'ParseJwt': let json=  backendUtility.parseJwt(input);
+        json = JSON.stringify(json)
+        console.log(json)
+        return json;
         case 'JsonBeatuify': 
      }
 
-
+   return output;
 }
 
-function Base64Encode(input){
-    let  encodedStringBtoA = btoa(input);
-     return encodedStringBtoA;
-}
+// function Base64Encode(input){
+//     let  encodedStringBtoA = btoa(input);
+//      return encodedStringBtoA;
+// }
 
-function Base64Decode(input){
-    let  encodedStringAtoB = atob(input);
-     return encodedStringAtoB;
-}
+// function Base64Decode(input){
+//     let  encodedStringAtoB = atob(input);
+//      return encodedStringAtoB;
+// }
 
 

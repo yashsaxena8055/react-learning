@@ -15,7 +15,7 @@ export function Dropdown(props) {
     setOptionSelected(option)
   }
 
-
+  props.setOptionSelected(optionSelected);
 
 
   return (
